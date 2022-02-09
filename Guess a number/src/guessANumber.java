@@ -12,20 +12,17 @@ public class guessANumber {
         Random rand = new Random();
         int num = rand.nextInt(20);
         int count = 0;
-        boolean game = true;
 
-        while(game){
+        while(true){
             System.out.println("Take a guess.");
             Scanner getInteger = new Scanner(System.in);
             int number = getInteger.nextInt();
             count++;
             if((number-num)>6){
                 System.out.println("Your guess is too high");
-                continue;
             }
             else if((num-number)>6){
                 System.out.println("Your guess is too low");
-                continue;
             }
             else{
                 System.out.println("Good job, "+name+"! Your guessed my number in "+ count+ " guesses!");
@@ -40,7 +37,6 @@ public class guessANumber {
                     rand = new Random();
                     num = rand.nextInt(20);
                     count = 0;
-                    game = true;
                 }
                 else{
                     break;
