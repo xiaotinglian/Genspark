@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.*;
 
-class guessANumberTest {
+class GuessANumberTest {
 
     @BeforeEach
      void setUp() {

@@ -3,8 +3,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class guessANumber {
+    public class
     public static void main(String[] args){
-        try {
 
             System.out.println("Hello! What is your name?");
             Scanner getInput = new Scanner(System.in);
@@ -43,9 +43,7 @@ public class guessANumber {
                     }
                 }
             }
-        }catch(Exception e) {
-            System.out.println("Exception: user input wrong");
-        }
+
 
     }
 }
