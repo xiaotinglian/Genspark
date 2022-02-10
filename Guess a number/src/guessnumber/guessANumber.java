@@ -1,4 +1,3 @@
-package java;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,6 +5,7 @@ import java.util.Scanner;
 public class guessANumber {
     public static void main(String[] args){
         try {
+
             System.out.println("Hello! What is your name?");
             Scanner getInput = new Scanner(System.in);
             String name = getInput.nextLine();
