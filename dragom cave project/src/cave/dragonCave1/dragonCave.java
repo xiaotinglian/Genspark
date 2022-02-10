@@ -1,15 +1,22 @@
-package cave;
-
+package cave.dragonCave1;
 import java.util.Scanner;
-
 public class dragonCave {
     public static String Cave(int choice){
-        if (choice == 1) {
-            return "You approach the cave..." + '\n' + "It is dark and spooky..." + "\n" + "A large dragon jumps out in front of you! He opens his jaws and..." + "\n" + "Gobbles you down in ine bite!";
+        try{
+            if (choice == 1) {
+                return "You approach the cave...\nIt is dark and spooky...\nA large dragon jumps out in front of you! He opens his jaws and...\nGobbles you down in ine bite!";
+            }
+        }catch(Exception o){
+            System.out.println("oops, Exception Caught");
         }
-        if (choice == 2) {
-            return "You got treasures from dragon!";
+        try{
+            if (choice == 2) {
+                return "You got treasures from dragon!";
+            }
+        }catch(Exception i){
+            System.out.println("oops, Exception Caught");
         }
+
         return null;
     }
 
