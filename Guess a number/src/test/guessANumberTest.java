@@ -1,10 +1,9 @@
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 
 class guessANumberTest {
 
     @BeforeEach
-    void setUp() {
+     void setUp() {
     }
 
     @AfterEach
