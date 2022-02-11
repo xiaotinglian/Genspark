@@ -35,7 +35,7 @@ public class guessANumber {
 
         int randNum = setRand();
         int count = 0;
-        int time = 7;
+        int time = 6;
 
         while (time!=0) {
             int guessNum = setNum();
@@ -50,8 +50,6 @@ public class guessANumber {
                 System.out.println("Would you like to play again? (y/n)");
                 char play =replay();
                 if (play=='y') {
-                    System.out.println("Hello! What is your name?");
-                    user=setName();
                     System.out.println("Well, " + user + ", I am thinking of a number between 1 and 20.");
                     randNum = setRand();
                     count = 0;
