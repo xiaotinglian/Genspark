@@ -1,16 +1,35 @@
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-class guessANumberTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class GuessANumberTest {
 
     @BeforeEach
-     void setUp() {
+    void setUp() {
     }
 
-    @AfterEach
-    void tearDown() {
+
+    @Test
+    void setNum() {
+        assertEquals(, dragonCave.Cave(1));
     }
 
     @Test
-    void main() {
+    void setName() {
+    }
+
+    @Test
+    void setRand() {
+    }
+
+    @Test
+    void replay() {
+    }
+
+
+    @AfterEach
+    void tearDown() {
     }
 }
