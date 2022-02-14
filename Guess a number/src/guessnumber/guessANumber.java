@@ -59,21 +59,26 @@ public class guessANumber {
         return false;
     }
     public static boolean winOrLost( int guessNum, String user, int randNum, int count){
+        try{
+            if(count==6){
+                System.out.println("out of chance!");
+                return false;
+            }
+            if (guessNum > randNum) {
+                System.out.println("Your guess is too high");
+                return true;
+            } else if (randNum > guessNum) {
+                System.out.println("Your guess is too low");
+                return true;
+            } else {
+                System.out.println("Good job, " + user + "! Your guessed my number in " + count + " guesses!");
+                return false;
+            }
 
-        if(count==6){
-            System.out.println("out of chance!");
-            return false;
+        }catch(Exception a){
+            System.out.println("something goes wrong in winOrLost method");
         }
-        if (guessNum > randNum) {
-            System.out.println("Your guess is too high");
-            return true;
-        } else if (randNum > guessNum) {
-            System.out.println("Your guess is too low");
-            return true;
-        } else {
-            System.out.println("Good job, " + user + "! Your guessed my number in " + count + " guesses!");
-            return false;
-        }
+
     }
 
     public static void main(String[] args){
