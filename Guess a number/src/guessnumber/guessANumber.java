@@ -78,7 +78,7 @@ public class guessANumber {
         }catch(Exception a){
             System.out.println("something goes wrong in winOrLost method");
         }
-
+        return true;
     }
 
     public static void main(String[] args){
