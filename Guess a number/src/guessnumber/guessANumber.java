@@ -39,18 +39,42 @@ public class guessANumber {
         }
         return rando;
     }
-    public static char replay(){
-        char again = 0;
+    public static boolean replay(){
+        char again ;
         System.out.println("Would you like to play again? (y/n)");
         try {
             Scanner choice = new Scanner(System.in);
             again = choice.next().charAt(0);
+            if(again=='y'){
+                return true;
+            }else if(again =='n'){
+                return false;
+            }else{
+                System.out.println("choose y or n");
+                return false;
+            }
         }catch(Exception w){
             System.out.println("exception in replay");
         }
-        return again;
+        return false;
     }
+    public static boolean winOrLost( int guessNum, String user, int randNum, int count){
 
+        if(count==6){
+            System.out.println("out of chance!");
+            return false;
+        }
+        if (guessNum > randNum) {
+            System.out.println("Your guess is too high");
+            return true;
+        } else if (randNum > guessNum) {
+            System.out.println("Your guess is too low");
+            return true;
+        } else {
+            System.out.println("Good job, " + user + "! Your guessed my number in " + count + " guesses!");
+            return false;
+        }
+    }
 
     public static void main(String[] args){
 
@@ -60,30 +84,18 @@ public class guessANumber {
 
         int randNum = setRand();
         int count = 0;
-        int time = 6;
+        boolean winOrLoose = true;
 
-        while (time!=0) {
-            int guessNum = setNum();
+        while (winOrLoose) {
             count++;
-            time--;
-            if (guessNum > randNum) {
-                System.out.println("Your guess is too high");
-            } else if (randNum > guessNum) {
-                System.out.println("Your guess is too low");
-            } else {
-                System.out.println("Good job, " + user + "! Your guessed my number in " + count + " guesses!");
-                char play =replay();
-
-                if (play=='y') {
-                    System.out.println("Well, " + user + ", I am thinking of a number between 1 and 20.");
-                    randNum = setRand();
-                    count = 0;
-                    time = 6;
-                }
-                if (play=='n') {
-                    break;
-                }
+            int guessNum = setNum();
+            winOrLoose = winOrLost(guessNum, user, randNum, count);
+            if(!winOrLoose){
+                randNum = setRand();
+                count =0;
+                winOrLoose=replay();
             }
         }
+        System.out.println("thank you for playing");
     }
 }

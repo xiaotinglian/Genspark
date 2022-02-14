@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,20 +10,16 @@ class GuessANumberTest {
 
 
     @Test
-    void setNum() {
-        assertEquals(, dragonCave.Cave(1));
+    void guessingTooLow() {
+        assertTrue(guessANumber.winOrLost(3, "shawn", 10, 5));
     }
-
     @Test
-    void setName() {
+    void guessingTooHigh() {
+        assertTrue(guessANumber.winOrLost(20, "shawn", 10, 5));
     }
-
     @Test
-    void setRand() {
-    }
-
-    @Test
-    void replay() {
+    void guessingRight() {
+        assertFalse(guessANumber.winOrLost(6, "shawn", 6, 5));
     }
 
 
