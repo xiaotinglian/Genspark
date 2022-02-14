@@ -17,7 +17,7 @@ public class dragonCave {
             System.out.println("oops, Exception Caught");
         }
 
-        return null;
+        return "wrong cave";
     }
 
     public static void main(String[] args){
@@ -28,7 +28,7 @@ public class dragonCave {
             int choice = getInput.nextInt();
             System.out.println(Cave(choice));
         }catch(Exception e){
-            System.out.println("Exception: wrong cave");
+            System.out.println("Exception: integers!");
         }
     }
 }
