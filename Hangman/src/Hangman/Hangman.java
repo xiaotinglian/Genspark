@@ -1,3 +1,5 @@
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class Hangman {
             }
 
             printWordState(word, playerGuesses);
-            if (!getPlayerGuess(keyboard, word, playerGuesses)) {
+            if (!getPlayerGuess(word, playerGuesses)) {
                 wrongCount++;
             }
 
@@ -68,7 +70,7 @@ public class Hangman {
         }
     }
 
-    private static void printHangedMan(Integer wrongCount) {
+    public static void printHangedMan(Integer wrongCount) {
         System.out.println(" -------");
         System.out.println(" |     |");
         if (wrongCount >= 1) {
@@ -95,15 +97,20 @@ public class Hangman {
         }
     }
 
-    private static boolean getPlayerGuess(Scanner keyboard, String word, List<Character> playerGuesses) {
-        System.out.println("Please enter a letter:");
-        String letterGuess = keyboard.nextLine();
-        playerGuesses.add(letterGuess.charAt(0));
-
+    public static boolean getPlayerGuess(String word, List<Character> playerGuesses) {
+        Scanner key = new Scanner(System.in);
+        String letterGuess = "";
+        try{
+            System.out.println("Please enter a letter:");
+            letterGuess = key.nextLine();
+            playerGuesses.add(letterGuess.charAt(0));
+        }catch(Exception e){
+            System.out.println("exception in getPlayerGuess method");
+        }
         return word.contains(letterGuess);
     }
 
-    private static boolean printWordState(String word, List<Character> playerGuesses) {
+    public static boolean printWordState(String word, List<Character> playerGuesses) {
         int correctCount = 0;
         for (int i = 0; i < word.length(); i++) {
             if (playerGuesses.contains(word.charAt(i))) {
@@ -114,7 +121,6 @@ public class Hangman {
                 System.out.print("-");
             }
         }
-        System.out.println();
 
         return (word.length() == correctCount);
     }
