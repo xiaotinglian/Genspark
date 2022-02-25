@@ -22,7 +22,7 @@ class HangmanTest {
         test.add('i');
         test.add('l');
         test.add('y');
-        assertTrue(Hangman.printWordState("yily",test));
+        assertTrue(Hangman.printWordState("lily",test));
         assertFalse(Hangman.printWordState("yilye",test));
     }
 
