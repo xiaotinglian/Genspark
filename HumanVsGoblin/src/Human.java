@@ -1,12 +1,12 @@
-public class human {
-    private int health;
-    private int strength;
+public class Human {
+    public int health;
+    public int strength;
 
-    public human(){
+    public Human(){
 //        default constructor
     }
 
-    public human(int health, int strength) {
+    public Human(int health, int strength) {
         this.health = health;
         this.strength = strength;
     }
@@ -25,5 +25,9 @@ public class human {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+    @Override
+    public String toString(){
+        return "\uD83D\uDC68";
     }
 }

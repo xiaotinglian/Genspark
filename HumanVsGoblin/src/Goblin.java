@@ -1,12 +1,10 @@
-public class goblin {
-    private int health;
-    private int strength;
+public class Goblin extends Humanoid{
+    public int health;
+    public int strength;
 
-    public goblin(){
-//        default constructor
-    }
 
-    public goblin(int health, int strength) {
+    public Goblin(int health, int strength,int x, int y) {
+        super(x,y);
         this.health = health;
         this.strength = strength;
     }
@@ -25,5 +23,9 @@ public class goblin {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+    @Override
+    public String toString(){
+        return "\uD83D\uDC7A";
     }
 }
