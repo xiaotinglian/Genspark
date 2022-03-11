@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 
 public class Hangman {
@@ -40,6 +42,7 @@ public class Hangman {
             }
 
             if(printWordState(word, playerGuesses)) {
+                System.out.println("you win");
                 history(player,wrongCount);
                 System.out.println("do you want to play again? y or n");
                 Scanner check =new Scanner(System.in);
@@ -85,10 +88,10 @@ public class Hangman {
 
         if (wrongCount >= 5) {
             System.out.print("/ ");
-            if (wrongCount >= 6) {
-                System.out.println("\\");
-            }
-        }System.out.println("");
+        }
+        if (wrongCount >= 6) {
+            System.out.println("\\");
+        }
     }
 
     public static boolean getPlayerGuess(String word, List<Character> playerGuesses) {
@@ -105,18 +108,31 @@ public class Hangman {
     }
 
     public static boolean printWordState(String word, List<Character> playerGuesses) {
-        int correctCount = 0;
-        for (int i = 0; i < word.length(); i++) {
-            if (playerGuesses.contains(word.charAt(i))) {
-                System.out.print(word.charAt(i));
-                correctCount++;
+        AtomicInteger correctCount = new AtomicInteger(0);
+
+        Stream<Character> temp = word.chars().mapToObj(c -> (char)c);
+
+        temp.forEach(i -> {
+            if(playerGuesses.contains(i)){
+                System.out.print(i+"");
+                correctCount.getAndIncrement();
             }
             else {
                 System.out.print("-");
             }
-        }
+        });
 
-        return (word.length() == correctCount);
+//        for (int i = 0; i < word.length(); i++) {
+//            if (playerGuesses.contains(word.charAt(i))) {
+//                System.out.print(word.charAt(i));
+//                correctCount++;
+//            }
+//            else {
+//                System.out.print("-");
+//            }
+//        }
+
+        return (word.length() == correctCount.get());
     }
     public  static void history(String name, int wrongCount) {
         try{
