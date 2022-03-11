@@ -16,7 +16,7 @@ public class Hangman {
 
         String word;
 
-        Scanner scanner = new Scanner(new File("D:/gensparkprojects/Genspark/Hangman/words_alpha.txt"));
+        Scanner scanner = new Scanner(new File("D:/gensparkprojects/Genspark/Hangman2/words_alpha.txt"));
         List<String> words = new ArrayList<>();
 
         while (scanner.hasNext()) {
