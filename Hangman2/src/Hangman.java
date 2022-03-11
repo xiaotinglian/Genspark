@@ -49,7 +49,7 @@ public class Hangman {
                 word = words.get(rand.nextInt(words.size()));
             }
             if (wrongCount >= 6) {
-                System.out.println(player+"You lose!");
+                System.out.println(player+" You lose!");
                 System.out.println("The word was: " + word);
                 System.out.println("do you want to play again? y or n");
                 Scanner check =new Scanner(System.in);
@@ -125,7 +125,7 @@ public class Hangman {
             String [] temp=readIN.split(" ");
             List<String> hist= Arrays.stream(temp).filter(x -> x.length() == 1).sorted().toList();
             if(Integer.parseInt(hist.get(0))>wrongCount)
-                System.out.println("congratulations "+name+"! you have the high score of game");
+                System.out.println("congratulations "+name+"! you win!");
             Files.writeString(Path.of("output.txt"), readIN+" "+name+" "+wrongCount );
         }
         catch (Exception e)
