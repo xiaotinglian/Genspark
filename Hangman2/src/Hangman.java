@@ -16,7 +16,7 @@ public class Hangman {
 
         String word;
 
-        Scanner scanner = new Scanner(new File("D:/gensparkprojects/Genspark/Hangman2/words_alpha.txt"));
+        Scanner scanner = new Scanner(new File("words_alpha.txt"));
         List<String> words = new ArrayList<>();
 
         while (scanner.hasNext()) {
@@ -59,6 +59,7 @@ public class Hangman {
                 playerGuesses.clear();
                 word = words.get(rand.nextInt(words.size()));
             }
+            System.out.println("");
         }
     }
 
@@ -86,7 +87,7 @@ public class Hangman {
             if (wrongCount >= 6) {
                 System.out.println("\\");
             }
-        }
+        }System.out.println("");
     }
 
     public static boolean getPlayerGuess(String word, List<Character> playerGuesses) {
